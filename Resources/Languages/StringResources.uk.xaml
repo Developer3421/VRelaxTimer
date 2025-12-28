@@ -1,0 +1,43 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="AppTitle">Relax Timer</sys:String>
+    <sys:String x:Key="TimeForMyself">ЧАС ДЛЯ СЕБЕ</sys:String>
+    <sys:String x:Key="Start">СТАРТ</sys:String>
+    <sys:String x:Key="Pause">ПАУЗА</sys:String>
+    <sys:String x:Key="Reset">СКИДАННЯ</sys:String>
+    <sys:String x:Key="Send">➤</sys:String>
+    <sys:String x:Key="Custom">Власний</sys:String>
+    <sys:String x:Key="UserAgreementTitle">Угода користувача</sys:String>
+    <sys:String x:Key="Accept">ПРИЙНЯТИ</sys:String>
+    <sys:String x:Key="Decline">ВІДХИЛИТИ</sys:String>
+    <sys:String x:Key="SelectLanguage">ОБЕРІТЬ МОВУ</sys:String>
+    <sys:String x:Key="AgreementText">Використовуючи цей додаток, ви погоджуєтесь приділити час собі, розслабитися і дихати. Цей інструмент створений для підтримки ментального благополуччя, але не замінює професійну допомогу.&#x0a;&#x0a;ЗБЕРЕЖЕННЯ ДАНИХ: Єдині дані, що зберігаються цим додатком - це ваша поточна назва мови інтерфейсу, збережена локально на вашому пристрої.&#x0a;&#x0a;МОДЕЛЬ ШІ: Цей додаток використовує GPT-2, історичну модель ШІ, з освітньою метою для ознайомлення користувачів з історією та можливостями ранніх локальних моделей ШІ. GPT-2 представляє важливу віху в розвитку доступних локальних технологій штучного інтелекту.</sys:String>
+    <sys:String x:Key="ChatPlaceholder">Введіть ваше повідомлення...</sys:String>
+    <sys:String x:Key="TimerFinished">Таймер завершено</sys:String>
+    <sys:String x:Key="Settings">Налаштування</sys:String>
+    <sys:String x:Key="OpenLanguageSelection">Мова</sys:String>
+    <sys:String x:Key="OpenUserAgreement">Угода</sys:String>
+    <sys:String x:Key="ReportAIContent">Поскаржитися на контент AI</sys:String>
+    <sys:String x:Key="CustomTimerTitle">Власний таймер</sys:String>
+    <sys:String x:Key="SetTime">Встановіть час:</sys:String>
+    <sys:String x:Key="InfiniteMode">Нескінченний режим</sys:String>
+    <sys:String x:Key="FormatHint">Формат: ГГ:ХХ:СС</sys:String>
+    <sys:String x:Key="OK">ОК</sys:String>
+    <sys:String x:Key="Cancel">Скасувати</sys:String>
+    <sys:String x:Key="InvalidFormatMessage">Введіть коректний час у форматі ГГ:ХХ:СС&#x0a;Максимальний час: 10 годин</sys:String>
+    <sys:String x:Key="InvalidFormatTitle">Неправильний формат</sys:String>
+    <sys:String x:Key="User">Користувач</sys:String>
+    <sys:String x:Key="AI">ШІ</sys:String>
+    <sys:String x:Key="Close">ЗАКРИТИ</sys:String>
+    <sys:String x:Key="ReportContentTitle">Поскаржитися на контент AI</sys:String>
+    <sys:String x:Key="ReportContentDescription">Будь ласка, опишіть будь-який неприйнятний або тривожний контент, згенерований ШІ. Ваш відгук допомагає покращити систему.</sys:String>
+    <sys:String x:Key="SaveReport">ЗБЕРЕГТИ СКАРГУ</sys:String>
+    <sys:String x:Key="ReportEmptyMessage">Будь ласка, введіть опис проблеми перед збереженням.</sys:String>
+    <sys:String x:Key="ReportEmptyTitle">Порожня скарга</sys:String>
+    <sys:String x:Key="ReportSavedMessage">Скаргу успішно збережено.</sys:String>
+    <sys:String x:Key="ReportSavedTitle">Успіх</sys:String>
+    <sys:String x:Key="ReportSaveError">Не вдалося зберегти скаргу:</sys:String>
+    <sys:String x:Key="Error">Помилка</sys:String>
+</ResourceDictionary>
+

@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:RelaxTimerApp"
-        Title="Relax Timer" Height="600" Width="450"
+        Title="Relax Timer" Height="700" Width="450"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         WindowStyle="None" MouseDown="Window_MouseDown">
@@ -239,7 +239,7 @@
                                 Click="SetTimer30_Click"/>
                         <Button Style="{StaticResource TimerPresetButton}" Content="40:00" 
                                 Click="SetTimer40_Click"/>
-                                    <Button Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[Custom]}" Style="{StaticResource TimerPresetButton}" 
+                                    <Button Content="{DynamicResource Custom}" Style="{StaticResource TimerPresetButton}" 
                                             Background="#30FFFFFF" 
                                             Click="SetTimerCustom_Click"/>
                         
@@ -265,7 +265,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 
-                <TextBlock Text="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[TimeForMyself]}" FontSize="18" FontWeight="Light" 
+                <TextBlock Text="TIME FOR MYSELF" FontSize="18" FontWeight="Light" 
                            Foreground="#EEFFFFFF" HorizontalAlignment="Center" 
                            FontFamily="Segoe UI Light">
                     <TextBlock.Effect>
@@ -317,29 +317,29 @@
                 <StackPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" 
                             Margin="0,10,0,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[Start]}" Style="{StaticResource ControlButton}" 
+                        <Button Content="{DynamicResource Start}" Style="{StaticResource ControlButton}" 
                                 Click="StartButton_Click"/>
-                        <Button Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[Pause]}" Style="{StaticResource ControlButton}" 
+                        <Button Content="{DynamicResource Pause}" Style="{StaticResource ControlButton}" 
                                 Click="PauseButton_Click"/>
-                        <Button Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[Reset]}" Style="{StaticResource ControlButton}" 
+                        <Button Content="{DynamicResource Reset}" Style="{StaticResource ControlButton}" 
                                 Click="ResetButton_Click"/>
                     </StackPanel>
                     
                     <!-- Language and Agreement buttons -->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                        <Button Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[OpenLanguageSelection]}"
+                        <Button Content="{DynamicResource OpenLanguageSelection}"
                                 Style="{StaticResource TimerPresetButton}"
                                 Width="80"
                                 Height="32"
                                 Margin="5,0"
                                 Click="OpenLanguageSelection_Click"/>
-                        <Button Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[OpenUserAgreement]}"
+                        <Button Content="{DynamicResource OpenUserAgreement}"
                                 Style="{StaticResource TimerPresetButton}"
                                 Width="80"
                                 Height="32"
                                 Margin="5,0"
                                 Click="OpenUserAgreement_Click"/>
-                        <Button Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[ReportAIContent]}"
+                        <Button Content="{DynamicResource ReportAIContent}"
                                 Style="{StaticResource TimerPresetButton}"
                                 Width="80"
                                 Height="32"
@@ -367,9 +367,9 @@
                 <TextBox x:Name="UserInputTextBox" Grid.Column="0" Height="40" 
                          Style="{StaticResource FuturisticTextBox}" MaxLength="100" 
                          KeyDown="UserInputTextBox_KeyDown"
-                         ToolTip="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[ChatPlaceholder]}"/>
+                         ToolTip="{DynamicResource ChatPlaceholder}"/>
                 
-                <Button Grid.Column="1" Margin="8,0,0,0" Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[Send]}" Width="75" Height="40"
+                <Button Grid.Column="1" Margin="8,0,0,0" Content="{DynamicResource Send}" Width="75" Height="40"
                         Click="SendChat_Click" Style="{StaticResource ControlButton}"/>
             </Grid>
             

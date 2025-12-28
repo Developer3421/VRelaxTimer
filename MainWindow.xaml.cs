@@ -40,7 +40,7 @@ namespace RelaxTimerApp
             InitializeComponent();
 
             // Load saved language
-            LocalizationHelper.Instance.CurrentLanguage = AppSettings.Instance.Language;
+            LocalizationHelper.Instance.SetLanguage(AppSettings.Instance.Language);
 
             _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
             _timer.Tick += Timer_Tick;
@@ -58,20 +58,16 @@ namespace RelaxTimerApp
             {
                 // Force English for first-run agreement
                 var previousLanguage = LocalizationHelper.Instance.CurrentLanguage;
-                LocalizationHelper.Instance.CurrentLanguage = "en";
+                LocalizationHelper.Instance.SetLanguage("en");
 
                 var agreementWindow = new UserAgreementWindow(isFirstRun: true);
                 agreementWindow.Owner = this;
                 var result = agreementWindow.ShowDialog();
 
-                if (result == true)
+                if (AppSettings.Instance.AgreementAccepted)
                 {
-                    // User accepted
-                    AppSettings.Instance.AgreementAccepted = true;
-                    AppSettings.Instance.Save();
-                    
                     // Restore language
-                    LocalizationHelper.Instance.CurrentLanguage = previousLanguage;
+                    LocalizationHelper.Instance.SetLanguage(previousLanguage);
                 }
                 else
                 {
@@ -143,7 +139,7 @@ namespace RelaxTimerApp
             // Create custom timer input dialog
             var customTimerDialog = new Window
             {
-                Title = LocalizationHelper.Instance["CustomTimerTitle"],
+                Title = (string)Application.Current.FindResource("CustomTimerTitle"),
                 Width = 340,
                 Height = 270,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner,
@@ -172,7 +168,7 @@ namespace RelaxTimerApp
 
             var titleLabel = new TextBlock
             {
-                Text = LocalizationHelper.Instance["SetTime"],
+                Text = (string)Application.Current.FindResource("SetTime"),
                 FontSize = 16,
                 FontWeight = FontWeights.Bold,
                 Foreground = Brushes.White,
@@ -199,7 +195,7 @@ namespace RelaxTimerApp
             // Add a checkbox for infinite mode
             var infiniteCheckBox = new CheckBox
             {
-                Content = LocalizationHelper.Instance["InfiniteMode"],
+                Content = (string)Application.Current.FindResource("InfiniteMode"),
                 Foreground = Brushes.White,
                 Margin = new Thickness(0, 0, 0, 10),
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -209,7 +205,7 @@ namespace RelaxTimerApp
             // Format hint text
             var formatHint = new TextBlock
             {
-                Text = LocalizationHelper.Instance["FormatHint"],
+                Text = (string)Application.Current.FindResource("FormatHint"),
                 FontSize = 12,
                 Foreground = new SolidColorBrush(Color.FromArgb(180, 255, 255, 255)),
                 Margin = new Thickness(0, 0, 0, 15),
@@ -225,7 +221,7 @@ namespace RelaxTimerApp
 
             var okButton = new Button
             {
-                Content = LocalizationHelper.Instance["OK"],
+                Content = (string)Application.Current.FindResource("OK"),
                 Width = 80,
                 Height = 30,
                 Margin = new Thickness(5),
@@ -236,7 +232,7 @@ namespace RelaxTimerApp
 
             var cancelButton = new Button
             {
-                Content = LocalizationHelper.Instance["Cancel"],
+                Content = (string)Application.Current.FindResource("Cancel"),
                 Width = 80,
                 Height = 30,
                 Margin = new Thickness(5),
@@ -287,8 +283,8 @@ namespace RelaxTimerApp
                 }
                 else
                 {
-                    MessageBox.Show(LocalizationHelper.Instance["InvalidFormatMessage"], 
-                                  LocalizationHelper.Instance["InvalidFormatTitle"],
+                    MessageBox.Show((string)Application.Current.FindResource("InvalidFormatMessage"), 
+                                  (string)Application.Current.FindResource("InvalidFormatTitle"),
                                   MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             };
@@ -704,9 +700,9 @@ namespace RelaxTimerApp
             try
             {
                 // Show user message as typed.
-                AddMessageToChat($"{LocalizationHelper.Instance["User"]}: {userInput}", isUser: true);
+                AddMessageToChat($"{(string)Application.Current.FindResource("User")}: {userInput}", isUser: true);
 
-                AddMessageToChat($"{LocalizationHelper.Instance["AI"]}: ", isUser: false, isPartial: true);
+                AddMessageToChat($"{(string)Application.Current.FindResource("AI")}: ", isUser: false, isPartial: true);
 
                 // Send input directly to AI
                 var response = await GenerateEnglishCompletionAsync(userInput, maxTokens: 240);
@@ -1014,10 +1010,6 @@ namespace RelaxTimerApp
             var window = new LanguageSelectionWindow();
             window.Owner = this;
             window.ShowDialog();
-            
-            // Save language after selection
-            AppSettings.Instance.Language = LocalizationHelper.Instance.CurrentLanguage;
-            AppSettings.Instance.Save();
         }
 
         private void OpenUserAgreement_Click(object sender, RoutedEventArgs e)

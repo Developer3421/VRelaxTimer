@@ -1,0 +1,43 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="AppTitle">Relax Timer</sys:String>
+    <sys:String x:Key="TimeForMyself">ZEIT FÜR MICH</sys:String>
+    <sys:String x:Key="Start">START</sys:String>
+    <sys:String x:Key="Pause">PAUSE</sys:String>
+    <sys:String x:Key="Reset">ZURÜCKSETZEN</sys:String>
+    <sys:String x:Key="Send">➤</sys:String>
+    <sys:String x:Key="Custom">Benutzerdefiniert</sys:String>
+    <sys:String x:Key="UserAgreementTitle">Nutzungsvereinbarung</sys:String>
+    <sys:String x:Key="Accept">AKZEPTIEREN</sys:String>
+    <sys:String x:Key="Decline">ABLEHNEN</sys:String>
+    <sys:String x:Key="SelectLanguage">SPRACHE WÄHLEN</sys:String>
+    <sys:String x:Key="AgreementText">Durch die Nutzung dieser Anwendung erklären Sie sich damit einverstanden, sich einen Moment Zeit für sich selbst zu nehmen, zu entspannen und zu atmen. Dieses Tool soll das psychische Wohlbefinden unterstützen, ersetzt jedoch keine professionelle Hilfe.&#x0a;&#x0a;DATENSPEICHERUNG: Die einzigen Daten, die von dieser Anwendung gespeichert werden, sind Ihre gewählte Spracheinstellung, die lokal auf Ihrem Gerät gespeichert wird.&#x0a;&#x0a;KI-MODELL: Diese Anwendung verwendet GPT-2, ein historisches KI-Modell, zu Bildungszwecken, um Benutzer mit der Geschichte und den Fähigkeiten früher lokaler KI-Modelle vertraut zu machen. GPT-2 stellt einen wichtigen Meilenstein in der Entwicklung zugänglicher, lokal ausgeführter KI-Technologie dar.</sys:String>
+    <sys:String x:Key="ChatPlaceholder">Geben Sie Ihre Nachricht ein...</sys:String>
+    <sys:String x:Key="TimerFinished">Timer abgelaufen</sys:String>
+    <sys:String x:Key="Settings">Einstellungen</sys:String>
+    <sys:String x:Key="OpenLanguageSelection">Sprache</sys:String>
+    <sys:String x:Key="OpenUserAgreement">Vereinbarung</sys:String>
+    <sys:String x:Key="ReportAIContent">KI-Inhalt melden</sys:String>
+    <sys:String x:Key="CustomTimerTitle">Benutzerdefinierter Timer</sys:String>
+    <sys:String x:Key="SetTime">Zeit einstellen:</sys:String>
+    <sys:String x:Key="InfiniteMode">Unendlich-Modus</sys:String>
+    <sys:String x:Key="FormatHint">Format: HH:MM:SS</sys:String>
+    <sys:String x:Key="OK">OK</sys:String>
+    <sys:String x:Key="Cancel">Abbrechen</sys:String>
+    <sys:String x:Key="InvalidFormatMessage">Geben Sie die korrekte Zeit im Format HH:MM:SS ein&#x0a;Maximale Zeit: 10 Stunden</sys:String>
+    <sys:String x:Key="InvalidFormatTitle">Ungültiges Format</sys:String>
+    <sys:String x:Key="User">Benutzer</sys:String>
+    <sys:String x:Key="AI">KI</sys:String>
+    <sys:String x:Key="Close">SCHLIEßEN</sys:String>
+    <sys:String x:Key="ReportContentTitle">KI-Inhalt melden</sys:String>
+    <sys:String x:Key="ReportContentDescription">Bitte beschreiben Sie unangemessene oder besorgniserregende Inhalte, die von der KI generiert wurden. Ihr Feedback hilft, das System zu verbessern.</sys:String>
+    <sys:String x:Key="SaveReport">BERICHT SPEICHERN</sys:String>
+    <sys:String x:Key="ReportEmptyMessage">Bitte geben Sie eine Beschreibung des Problems ein, bevor Sie speichern.</sys:String>
+    <sys:String x:Key="ReportEmptyTitle">Leerer Bericht</sys:String>
+    <sys:String x:Key="ReportSavedMessage">Bericht wurde erfolgreich gespeichert.</sys:String>
+    <sys:String x:Key="ReportSavedTitle">Erfolg</sys:String>
+    <sys:String x:Key="ReportSaveError">Fehler beim Speichern des Berichts:</sys:String>
+    <sys:String x:Key="Error">Fehler</sys:String>
+</ResourceDictionary>
+

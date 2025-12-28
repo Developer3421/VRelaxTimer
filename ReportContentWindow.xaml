@@ -1,66 +1,37 @@
 <Window x:Class="RelaxTimerApp.ReportContentWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:RelaxTimerApp"
-        Title="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[ReportContentTitle]}" Height="500" Width="550"
+        Title="Report Content" Height="450" Width="400"
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         WindowStyle="None"
-        MouseDown="Window_MouseDown">
-
-    <Window.Background>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#10023C" Offset="0"/>
-            <GradientStop Color="#3D1033" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
-
-    <Border CornerRadius="20" BorderThickness="1" Padding="20">
-        <Border.BorderBrush>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#80FFFFFF" Offset="0"/>
-                <GradientStop Color="#40FFFFFF" Offset="1"/>
-            </LinearGradientBrush>
-        </Border.BorderBrush>
-        
-        <Grid>
+        Background="Transparent">
+    
+    <Border CornerRadius="20" Background="#2D0A31" BorderThickness="1" BorderBrush="#40FFFFFF">
+        <Grid Margin="20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
-            <TextBlock Text="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[ReportContentTitle]}" 
-                       FontSize="24" FontWeight="Bold" Foreground="White" 
-                       HorizontalAlignment="Center" Margin="0,0,0,15"
-                       FontFamily="Segoe UI"/>
-
-            <TextBlock Grid.Row="1" 
-                       Text="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[ReportContentDescription]}" 
-                       FontSize="14" Foreground="White" TextWrapping="Wrap"
-                       Margin="0,0,0,15"
-                       FontFamily="Segoe UI"/>
-
-            <Border Grid.Row="2" Background="#20FFFFFF" CornerRadius="12" Padding="10" Margin="0,0,0,15">
-                <TextBox x:Name="ReportTextBox"
-                         Background="Transparent"
-                         Foreground="White"
-                         FontSize="14"
-                         FontFamily="Segoe UI"
-                         TextWrapping="Wrap"
-                         AcceptsReturn="True"
-                         VerticalScrollBarVisibility="Auto"
-                         BorderThickness="0"
-                         VerticalAlignment="Stretch"/>
-            </Border>
-
-            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[SaveReport]}" 
-                        Click="SaveReport_Click" Margin="10,0" Width="140" Height="40" Style="{StaticResource FuturisticButton}"/>
-                <Button Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[Close]}" 
-                        Click="Close_Click" Margin="10,0" Width="120" Height="40" Style="{StaticResource FuturisticButton}"/>
+            
+            <TextBlock Text="{DynamicResource ReportContentTitle}" FontSize="20" FontWeight="Bold" 
+                       Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+            
+            <TextBlock Grid.Row="1" Text="{DynamicResource ReportContentDescription}" 
+                       TextWrapping="Wrap" Foreground="#AAFFFFFF" Margin="0,0,0,10"/>
+            
+            <TextBox Grid.Row="2" x:Name="ReportTextBox" Style="{StaticResource FuturisticTextBox}" 
+                     VerticalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap"/>
+            
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button Content="{DynamicResource SaveReport}" Click="SaveButton_Click" 
+                        Style="{StaticResource FuturisticButton}" Margin="5,0" Background="#40FF7A00"/>
+                <Button Content="{DynamicResource Close}" Click="CloseButton_Click" 
+                        Style="{StaticResource FuturisticButton}" Margin="5,0" Background="#30FFFFFF"/>
             </StackPanel>
         </Grid>
     </Border>
 </Window>
+

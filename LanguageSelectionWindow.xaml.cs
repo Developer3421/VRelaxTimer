@@ -1,5 +1,5 @@
 using System.Windows;
-using System.Windows.Input;
+using System.Windows.Controls;
 
 namespace RelaxTimerApp
 {
@@ -10,41 +10,17 @@ namespace RelaxTimerApp
             InitializeComponent();
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void LanguageButton_Click(object sender, RoutedEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
+            if (sender is Button button && button.Tag is string languageCode)
+            {
+                LocalizationHelper.Instance.SetLanguage(languageCode);
+            }
         }
 
-        private void English_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            LocalizationHelper.Instance.CurrentLanguage = "en";
-            Close();
-        }
-
-        private void Ukrainian_Click(object sender, RoutedEventArgs e)
-        {
-            LocalizationHelper.Instance.CurrentLanguage = "uk";
-            Close();
-        }
-
-        private void German_Click(object sender, RoutedEventArgs e)
-        {
-            LocalizationHelper.Instance.CurrentLanguage = "de";
-            Close();
-        }
-
-        private void Turkish_Click(object sender, RoutedEventArgs e)
-        {
-            LocalizationHelper.Instance.CurrentLanguage = "tr";
-            Close();
-        }
-
-        private void Russian_Click(object sender, RoutedEventArgs e)
-        {
-            LocalizationHelper.Instance.CurrentLanguage = "ru";
             Close();
         }
     }
 }
-

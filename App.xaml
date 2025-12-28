@@ -4,8 +4,13 @@
              xmlns:local="clr-namespace:RelaxTimerApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!-- Futuristic button style -->
-        <Style x:Key="FuturisticButton" TargetType="Button">
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Languages/StringResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Futuristic button style -->
+            <Style x:Key="FuturisticButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
@@ -103,5 +108,6 @@
         
         <!-- Rounded Corner Converter -->
         <CornerRadius x:Key="PanelCornerRadius">18</CornerRadius>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

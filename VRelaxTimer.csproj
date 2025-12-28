@@ -56,10 +56,9 @@
     -->
     <!-- <Import Project="LLamaPublishFix.props" /> -->
 
-    <Target Name="RemoveDuplicateNativeDlls" BeforeTargets="ComputeFilesToBundle">
+    <Target Name="RemoveDuplicateNativeDlls" AfterTargets="ComputeFilesToBundle">
         <ItemGroup>
-            <Content Remove="@(Content)" Condition="$([System.String]::Copy('%(FullPath)').Contains('\avx\'))" />
-            <None Remove="@(None)" Condition="$([System.String]::Copy('%(FullPath)').Contains('\avx\'))" />
+            <FilesToBundle Remove="@(FilesToBundle)" Condition="$([System.String]::Copy('%(Identity)').Contains('\native\avx\'))" />
         </ItemGroup>
     </Target>
 
