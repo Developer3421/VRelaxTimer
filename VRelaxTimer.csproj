@@ -58,7 +58,7 @@
 
     <Target Name="RemoveDuplicateNativeDlls" AfterTargets="ComputeFilesToBundle">
         <ItemGroup>
-            <FilesToBundle Remove="@(FilesToBundle)" Condition="$([System.String]::Copy('%(Identity)').Contains('\native\avx\'))" />
+            <FilesToBundle Remove="@(FilesToBundle)" Condition="$([System.String]::Copy('%(Identity)').Replace('\', '/').Contains('/native/avx/'))" />
         </ItemGroup>
     </Target>
 
