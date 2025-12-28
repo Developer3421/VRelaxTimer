@@ -35,6 +35,9 @@
       <Content Include="pianosound.wav">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <Content Include="GPT-2-fine-tuned-mental-health.Q8_0.gguf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
@@ -58,8 +61,10 @@
 
     <Target Name="RemoveDuplicateNativeDlls" AfterTargets="ComputeFilesToBundle">
         <ItemGroup>
-            <FilesToBundle Remove="@(FilesToBundle)" Condition="$([System.String]::Copy('%(Identity)').Replace('\', '/').Contains('/native/avx/'))" />
+            <_FilesToRemove Include="@(FilesToBundle)" Condition="$([System.String]::Copy('%(Identity)').Contains('\native\avx\')) OR $([System.String]::Copy('%(Identity)').Contains('/native/avx/'))" />
+            <FilesToBundle Remove="@(_FilesToRemove)" />
         </ItemGroup>
+        <Message Text="Attempting to remove @(_FilesToRemove) from bundle" Importance="high" />
     </Target>
 
 </Project>

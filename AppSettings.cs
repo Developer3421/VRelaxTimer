@@ -30,20 +30,35 @@ namespace RelaxTimerApp
 
         private static AppSettings Load()
         {
+            AppSettings? settings = null;
+            bool needsSave = false;
+
             try
             {
                 if (File.Exists(SettingsPath))
                 {
                     var json = File.ReadAllText(SettingsPath);
-                    return JsonSerializer.Deserialize<AppSettings>(json) ?? new AppSettings();
+                    settings = JsonSerializer.Deserialize<AppSettings>(json);
                 }
             }
             catch
             {
-                // If loading fails, return default settings
+                // If loading fails, we will create new settings
             }
             
-            return new AppSettings();
+            if (settings == null)
+            {
+                settings = new AppSettings();
+                needsSave = true;
+            }
+
+            // Ensure the file exists on disk even if we just created default settings
+            if (needsSave || !File.Exists(SettingsPath))
+            {
+                settings.Save();
+            }
+
+            return settings;
         }
 
         public void Save()
