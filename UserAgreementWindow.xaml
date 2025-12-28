@@ -1,0 +1,58 @@
+<Window x:Class="RelaxTimerApp.UserAgreementWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:RelaxTimerApp"
+        Title="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[UserAgreementTitle]}" Height="550" Width="550"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown">
+
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#10023C" Offset="0"/>
+            <GradientStop Color="#3D1033" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Border CornerRadius="20" BorderThickness="1" Padding="20">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#80FFFFFF" Offset="0"/>
+                <GradientStop Color="#40FFFFFF" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[UserAgreementTitle]}" 
+                       FontSize="24" FontWeight="Bold" Foreground="White" 
+                       HorizontalAlignment="Center" Margin="0,0,0,20"
+                       FontFamily="Segoe UI"/>
+
+            <ScrollViewer Grid.Row="1" Margin="0,0,0,20" VerticalScrollBarVisibility="Auto">
+                <TextBlock Text="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[AgreementText]}" 
+                           FontSize="16" Foreground="White" TextWrapping="Wrap"
+                           FontFamily="Segoe UI"/>
+            </ScrollViewer>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="AcceptButton"
+                        Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[Accept]}" 
+                        Click="Accept_Click" Margin="10,0" Width="120" Height="40" Style="{StaticResource FuturisticButton}"/>
+                <Button x:Name="DeclineButton"
+                        Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[Decline]}" 
+                        Click="Decline_Click" Margin="10,0" Width="120" Height="40" Style="{StaticResource FuturisticButton}"/>
+                <Button x:Name="CloseButton"
+                        Content="{Binding Source={x:Static local:LocalizationHelper.Instance}, Path=[Close]}" 
+                        Click="CloseButton_Click" Margin="10,0" Width="120" Height="40" Style="{StaticResource FuturisticButton}"
+                        Visibility="Collapsed"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

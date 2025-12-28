@@ -1,0 +1,14 @@
+<linker>
+  <!-- Зберегти LLamaSharp та GTranslate під час тримінгу -->
+  <assembly fullname="LLamaSharp" preserve="all" />
+  <assembly fullname="GTranslate" preserve="all" />
+
+  <!-- Зберегти WPF компоненти -->
+  <assembly fullname="PresentationCore" preserve="all" />
+  <assembly fullname="PresentationFramework" preserve="all" />
+  <assembly fullname="WindowsBase" preserve="all" />
+  <assembly fullname="System.Xaml" preserve="all" />
+
+  <!-- Зберегти медіа компоненти для звуку -->
+  <assembly fullname="System.Media" preserve="all" />
+</linker>

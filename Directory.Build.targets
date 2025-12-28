@@ -1,0 +1,10 @@
+<Project>
+  <!-- Виключаємо .gitignore файли з публікації -->
+  <Target Name="RemoveGitIgnoreFromPublish" BeforeTargets="GenerateBundledFiles">
+    <ItemGroup>
+      <!-- Виключаємо всі .gitignore файли -->
+      <FilesToBundle Remove="**\.gitignore" />
+      <ResolvedFileToPublish Remove="**\.gitignore" />
+    </ItemGroup>
+  </Target>
+</Project>

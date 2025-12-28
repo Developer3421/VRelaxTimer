@@ -1,0 +1,107 @@
+﻿<Application x:Class="RelaxTimerApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RelaxTimerApp"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Futuristic button style -->
+        <Style x:Key="FuturisticButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="15,8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                CornerRadius="8" BorderThickness="0" 
+                                Effect="{DynamicResource GlowEffect}">
+                            <Grid>
+                                <Border x:Name="glow" Opacity="0.2" Background="White" 
+                                        CornerRadius="8" Height="0"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Opacity" Value="0.9"/>
+                                <Setter TargetName="glow" Property="Height" Value="20"/>
+                                <Setter TargetName="glow" Property="Opacity" Value="0.4"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Opacity" Value="0.8"/>
+                                <Setter TargetName="glow" Property="Height" Value="5"/>
+                                <Setter TargetName="glow" Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!-- Futuristic TextBox style -->
+        <Style x:Key="FuturisticTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="#33FFFFFF"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" 
+                                CornerRadius="12" BorderThickness="1" 
+                                BorderBrush="#45FFFFFF">
+                            <Grid>
+                                <ScrollViewer x:Name="PART_ContentHost" Margin="5,0" 
+                                              VerticalAlignment="Center"/>
+                                <TextBlock x:Name="placeholder" Text="Type your message..." 
+                                           Foreground="#88FFFFFF" Padding="17,0,0,0" 
+                                           VerticalAlignment="Center" 
+                                           Visibility="Collapsed"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="placeholder" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#88FFFFFF"/>
+                                <Setter TargetName="border" Property="Background" Value="#44FFFFFF"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="#AAFFFFFF"/>
+                                <Setter TargetName="border" Property="Background" Value="#55FFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!-- Shadow Effect -->
+        <DropShadowEffect x:Key="GlowEffect" ShadowDepth="0" BlurRadius="15" Color="#FF7A00" Opacity="0.4"/>
+        <DropShadowEffect x:Key="PurpleGlowEffect" ShadowDepth="0" BlurRadius="15" Color="#9C27B0" Opacity="0.4"/>
+        
+        <!-- Gradient Brushes -->
+        <LinearGradientBrush x:Key="OrangeGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FF7A00" Offset="0"/>
+            <GradientStop Color="#FF9A40" Offset="1"/>
+        </LinearGradientBrush>
+        
+        <LinearGradientBrush x:Key="PurpleGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#9C27B0" Offset="0"/>
+            <GradientStop Color="#BA68C8" Offset="1"/>
+        </LinearGradientBrush>
+        
+        <LinearGradientBrush x:Key="BackgroundGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#2D0A31" Offset="0"/>
+            <GradientStop Color="#3B0A1F" Offset="1"/>
+        </LinearGradientBrush>
+        
+        <!-- Rounded Corner Converter -->
+        <CornerRadius x:Key="PanelCornerRadius">18</CornerRadius>
+    </Application.Resources>
+</Application>
