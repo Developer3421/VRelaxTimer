@@ -30,6 +30,9 @@ VRelaxTimer uses a local GPT‑2 model for educational and historical exploratio
 ## Build
 Open `VRelaxTimer.sln` in Visual Studio or JetBrains Rider and build/run the WPF app.
 
+## Download
+- Microsoft Store: https://apps.microsoft.com/detail/9PMDTL9PRP7J
+
 ## License
 See `LICENSE.txt`
 
